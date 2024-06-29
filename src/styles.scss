@@ -1,0 +1,11 @@
+@import './styles/variables';
+@import './styles/mixins';
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $dark-color;
+  background-color: $gray-color;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,238 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.tariff-list {
+  @include flex-center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0 10px;
+
+  .col {
+    width: 100%;
+  }
+
+  .tariff-item {
+    border: 1px solid rgba(0, 0, 0, .125);
+    padding: 0 10px;
+    margin: 10px;
+    background-color: $white-color;
+    border-radius: 10px;
+    @include box-shadow(0, 4px, 6px, rgba(0, 0, 0, 0.1));
+    @include flex-space-between;
+    width: 100%;
+    height: 150px;
+
+    .tariff-id-container {
+      height: 100%;
+      @include flex-center;
+      color: $primary-color;
+      border-right: 1px solid #dfdfdf;
+      padding-right: 10px;
+      font-weight: bold;
+    }
+
+    .tariff-id {
+      display: none;
+      padding: 10px;
+      color: $primary-color;
+      font-weight: bold;
+    }
+
+    .tariff-name-container {
+      font-size: large;
+      color: $secondary-color;
+      @include flex-center;
+    }
+
+    .tariff-speed-container {
+      @include flex-center;
+      flex-direction: column;
+    }
+
+    .tariff-speed-type {
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 3px;
+      color: $primary-color;
+    }
+
+    .tariff-speed {
+      display: none;
+      align-items: center;
+
+      fa-icon {
+        margin-right: 5px;
+        font-size: 16px;
+        color: $secondary-color;
+      }
+
+      .tariff-speed-rate {
+        font-size: 13px;
+      }
+    }
+
+    .upload-speed {
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .tariff-benefits-container {
+      font-size: 13px;
+      @include flex-center;
+
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+          margin-bottom: 5px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          fa-icon {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+
+    @include respond-to(tablet) {
+      .tariff-benefits-container,
+      .tariff-speed-type {
+        display: none;
+      }
+      .tariff-id-container {
+        position: relative;
+        top: 0;
+        border: none;
+        display: block;
+      }
+    }
+
+    @include respond-to(mobile) {
+      .tariff-display-none { // Corrected typo here
+        display: none !important;
+      }
+
+      .tariff-info {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+
+      .tariff-speed {
+        display: flex;
+      }
+
+      .tariff-button {
+        margin: 0 5px;
+        padding: 0 !important;
+        height: 140px;
+        justify-content: space-between !important;
+        align-items: center !important;
+
+        fa-icon {
+          margin: 0 3px !important;
+          font-size: 16px;
+        }
+      }
+
+      .tariff-name-container {
+        font-size: small;
+        justify-content: flex-start
+      }
+
+      .tariff-price {
+        font-size: 12px !important;
+      }
+    }
+
+    .tariff-info-container {
+      @include flex-end;
+      justify-content: flex-end;
+    }
+
+    .tariff-info {
+      @include flex-end;
+      flex-direction: column;
+      width: fit-content;
+    }
+
+    .tariff-price {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .tariff-button {
+      @include btn($primary-color);
+      display: flex;
+
+      fa-icon {
+        margin-left: 5px;
+        font-size: 16px;
+      }
+    }
+
+    .tariff-button:hover {
+      cursor: pointer;
+      background-color: $secondary-color;
+    }
+
+    .more-info {
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    .more-info:hover {
+      color: $secondary-color;
+    }
+
+    .arrow {
+      display: flex;
+      margin-bottom: 5px;
+    }
+    
+    
+    .arrow-tail {
+      width: auto;
+      height: 30px;
+      border: 2px solid $primary-color;
+      @include flex-center;
+      border-right: none;
+    }
+    
+    .arrow-head {
+      width: 22px;
+      height: 22px;
+      border: 2px solid $primary-color;
+      transform: rotate(45deg);
+      position: relative;
+      right: 11px;
+      top: 5px;
+      border-left: none;
+      border-bottom: none;
+    }
+    
+    .arrow-icon {
+      @include flex-center;
+      border-right: 2px solid $primary-color;
+      height: 30px;
+      padding: 0 5px;
+      fa-icon {
+        color: $secondary-color;
+      }
+    }
+    
+    .arrow-info {
+      @include flex-center;
+      height: 30px;
+      padding: 0 5px;
+      font-size: 12px;
+      width: 80px;
+    }
+  }
+}

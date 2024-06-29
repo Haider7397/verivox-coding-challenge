@@ -1,0 +1,48 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;  
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@mixin flex-end {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@mixin btn($color){
+  background-color: $color;
+  border-radius: 5px;
+  padding: 5px 20px;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (max-width: 1023px) { @content; }
+  } @else if $breakpoint == mobile {
+    @media (max-width: 767px) { @content; }
+  } @else {
+    @content;
+  }
+}

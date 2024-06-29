@@ -1,0 +1,61 @@
+<div class="tariff-list">
+  <app-tariff-filter (sortChange)="onSortChange($event)"></app-tariff-filter>
+  <div *ngFor="let tariff of tariffs | sort:sortAttribute; let i = index" class="tariff-item">
+    <div class="tariff-id-container">
+      <p>{{i + 1}}</p>
+    </div>
+    <div class="tariff-name-container col">
+      <h3>{{ tariff.name }}</h3>
+    </div>
+    <div class="tariff-speed-container col">
+      <div>
+        <p class="tariff-speed-type tariff-display-none">Download:</p>
+        <div class="tariff-speed">
+          <fa-icon [icon]="faDownload"></fa-icon>
+          <p class="tariff-speed-rate">{{ tariff.downloadSpeed }} Mbit/s</p>
+        </div>
+        <div class="arrow tariff-display-none">
+          <div class="arrow-tail">
+            <div class="arrow-icon">
+              <fa-icon [icon]="faDownload"></fa-icon>
+            </div>
+            <div class="arrow-info">
+              {{ tariff.downloadSpeed }} Mbit/s
+            </div>
+          </div>
+          <div class="arrow-head"></div>
+        </div>
+      </div>
+      <div class="tariff-display-none">
+        <p class="tariff-speed-type">Upload:</p>
+        <div class="arrow">
+          <div class="arrow-tail">
+            <div class="arrow-icon">
+              <fa-icon [icon]="faUpload"></fa-icon>
+            </div>
+            <div class="arrow-info">
+              {{ tariff.uploadSpeed }} Mbit/s
+            </div>
+          </div>
+          <div class="arrow-head"></div>
+        </div>
+      </div>
+    </div>
+    <div class="tariff-benefits-container col">
+      <ul>
+        <ng-container *ngFor="let benefit of tariff.benefits; let i = index">
+          <li *ngIf="i < 3"> <fa-icon [icon]="faCheck"></fa-icon> {{ benefit }}</li>
+          <li *ngIf="i === 2 && tariff.benefits.length > 3"><a class="more-info">... More</a></li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="tariff-info-container col">
+      <div class="tariff-info">
+        <p class="tariff-price">{{ tariff.price }} €</p>
+        <button class="tariff-button">
+          <div class="tariff-display-none">To Tariff</div> <fa-icon [icon]="faRightLong"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

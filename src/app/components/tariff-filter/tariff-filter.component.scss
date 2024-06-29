@@ -1,0 +1,27 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+.tariff-filter {
+    margin-bottom: 20px;
+
+    .sort-flex-direction {
+      @include flex-center;
+    }
+
+    .sort-button {
+      @include btn($primary-color);
+      margin: 5px;
+    }
+
+    .sort-button:hover {
+      background-color: $secondary-color;
+      cursor: pointer;
+    }
+
+    @include respond-to(mobile) {
+
+      .sort-flex-direction {
+        flex-direction: column;
+      }
+    }
+  }
+  
