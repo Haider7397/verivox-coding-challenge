@@ -1,0 +1,38 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.overlay {
+    @include flex-center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 1);
+    z-index: 1000;
+    flex-direction: column;
+
+    @keyframes custom-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+    }
+      
+    .custom-spin {
+        display: inline-block;
+        animation: custom-spin 1s linear infinite;
+    }
+    
+    fa-icon {
+        font-size: 56px;
+        color: $primary-color;
+    }
+
+    .loading {
+        color: $primary-color;
+    }
+}
+  
